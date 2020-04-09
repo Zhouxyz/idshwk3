@@ -29,13 +29,14 @@ event http_header(c: connection, is_orig: bool, name: string, value: string)
 		}		
 	}
 	
-	local NewUA:set[string];
-	add NewUA[UA];
-	local Q:IP_useragent;
-	Q$useragent=NewUA;
+	
 	
 	if(matchorig==F)
 	{
+		local NewUA:set[string];
+		add NewUA[UA];
+		local Q:IP_useragent;
+		Q$useragent=NewUA;
 		Q$address=c$id$orig_h;		
 		add x[Q];		
 		add sourceIP[c$id$orig_h];
