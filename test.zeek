@@ -64,8 +64,8 @@ event http_header(c: connection, is_orig: bool, name: string, value: string)
 }
 event zeek_done() 
 {
-    print "proxy:";
-	print proxy;
-	print "sourceIP:";
-	print sourceIP;
+	for(e in proxy)
+		print fmt("%s is a proxy",e);
+	for(e in sourceIP)
+		print fmt("%s is a sourceIP",e);
 }
